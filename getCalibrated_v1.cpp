@@ -48,14 +48,15 @@ int main(){
 
 	getCorners(patternsize,25,corners3D);
 					//Parameters send to this function are: number of squares vertically
-					//and horizontally (patternsize), size of each box(square).
+					//and horizontally (patternsize), size of each box(square) and a vector
+					//that will contain the real location of the 3D points in the image
 	
 	Mat 	img;
 	Mat 	imgGray;
 	bool 	found;
 	string 	imgs;
 
-	for(int i=0; i<14; i++)
+	for(int i=0; i<32; i++)
 				//The loop is due to the fact that each of the images has to be calibrated.
 				//It will have as many iterations as there are images.
 	{

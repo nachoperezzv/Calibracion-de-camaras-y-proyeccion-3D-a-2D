@@ -52,6 +52,10 @@ getProjection_v1: $(PRO)_v1.cpp
 	${COMP} ${CFLAGS} -o $(PRO)_v1 $(PRO)_v1.cpp ${OPENCV}
 	@echo '[7m[1m'Projection program - checked...'[0m'
 
+getProjection_v2: $(PRO)_v2.cpp
+	${COMP} ${CFLAGS} -o $(PRO)_v2 $(PRO)_v2.cpp ${OPENCV}
+	@echo '[7m[1m'Projection program - checked...'[0m'
+
 #---------- VERSIONS ----------#
 
 version1: $(CAL)_v1 $(IMG)_v1 $(PRO)_v1
@@ -65,11 +69,11 @@ version2: $(IMG)_v2
 
 run_v1:
 	@echo '[7m[1m'Save images program version1 running ...'[0m'
-	./$(IMG)
+	./$(IMG)_v1
 	@echo '[7m[1m'Calibration version1 running ...'[0m'
-	./$(CAL)
+	./$(CAL)_v1
 	@echo '[7m[1m'Projecting version1 running ...'[0m'
-	./$(PRO)
+	./$(PRO)_v1
 
 project_v1:
 	@echo '[7m[1m'Projecting version1 running ...'[0m'
@@ -79,7 +83,15 @@ project_v1:
 
 run_v2:
 	@echo '[7m[1m'Save images program version1 running ...'[0m'
-	./$(IMG)
+	./$(IMG)_v2
+	@echo '[7m[1m'Calibration version1 running ...'[0m'
+	./$(CAL)_v2
+	@echo '[7m[1m'Projecting version1 running ...'[0m'
+	./$(PRO)_v2
+
+project_v2:
+	@echo '[7m[1m'Projecting version1 running ...'[0m'
+	./$(PRO)_v2
 
 
 ###############
@@ -93,7 +105,7 @@ clean_v1:
 
 clean_v2:
 	@echo '[7m[1m'Cleaning version2...'[0m'
-	rm $(IMG)_v2
+	rm $(IMG)_v2 $(CAL)_v2 $(IMG)_v2
 
 tar:
 	@echo '[7m[1mCompressing: $(TARF).tgz ...[0m'

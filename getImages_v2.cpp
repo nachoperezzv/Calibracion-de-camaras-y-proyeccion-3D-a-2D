@@ -62,7 +62,7 @@ int main(){
 							//Also could be --> camera.read(frame)
 		end = clock();
 
-		if(frame.empty())	//Checking empty frame
+		if(frame.empty() or !frame.data)	//Checking empty frame
 			break;
 		
 		imshow("Capture", frame);	//if it's not empty, shows it. 
@@ -75,10 +75,10 @@ int main(){
 			if(1000*(end-start)/(CLOCKS_PER_SEC*30) > 4)
 							//Waits 4secs between pics. if time is below 4secs goes back to 
 							//the beginning of the loop
-			{
-				imgName = "/myFrames/cap" + to_string(numImg) + ".jpg";	numImg++;
+			{				
+				imgName = "myFrames/cap" + to_string(numImg) + ".jpg";	
+				numImg++;
 							//Name and number with whick the frame is saved
-
 				if(imwrite(imgName, frame))
 					cout << imgName << " saved" << endl;
 							//Frame successfully saved message

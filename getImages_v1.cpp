@@ -29,7 +29,7 @@ string 			imgName;
 int 			numImg 	= 0;
 
 //Constant
-const int 		numOfImg= 14;
+const int 		numOfImg = 32;
 
 //main function:
 int main(){
